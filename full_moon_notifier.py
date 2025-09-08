@@ -20,14 +20,14 @@ def is_full_moon_today():
 def send_slack_message(webhook_url):
     """Send full moon message to Slack"""
     payload = {
-        "text": "🌕 Full Moon Today! 🌕",
+            "text": "🌕 Full Moon Today! 🌕",
         "attachments": [
             {
                 "color": "#f1c40f",
                 "fields": [
                     {
                         "title": "Full Moon Alert",
-                        "value": "The moon is full today! Time to howl at the moon! 🐺",
+                        "value": "The moon is full tonight! Watch out for werewolves. And/or get out and howl at the moon. 🐺",
                         "short": False
                     }
                 ]
