@@ -1,6 +1,6 @@
 # Full Moon Slack Notifier 🌕
 
-Automatically sends a Slack message at 9 AM UTC on full moon days using GitHub Actions.
+Automatically sends a Slack message at 9 AM Pacific Time on full moon days using GitHub Actions.
 
 ## Setup
 
@@ -21,7 +21,7 @@ Automatically sends a Slack message at 9 AM UTC on full moon days using GitHub A
 
 ### 3. Done!
 
-The workflow runs daily at 9 AM UTC and only sends notifications on full moon days.
+The workflow runs daily at 9 AM Pacific Time and only sends notifications on full moon days.
 
 ## Files Structure
 
