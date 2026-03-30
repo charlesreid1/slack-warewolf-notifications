@@ -2,8 +2,6 @@
 import os
 import requests
 import ephem
-import schedule
-import time
 from datetime import datetime
 import pytz
 
@@ -57,10 +55,4 @@ def check_and_notify():
         print("🌙 Not a full moon today - no notification sent")
 
 if __name__ == "__main__":
-    print("Scheduler started. Waiting to run the check at 9 AM Pacific Time...")
-    
-    schedule.every().day.at("09:00", "America/Los_Angeles").do(check_and_notify)
-
-    while True:
-        schedule.run_pending()
-        time.sleep(60)
+    check_and_notify()

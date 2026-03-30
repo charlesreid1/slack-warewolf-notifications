@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests ephem
+        pip install requests ephem pytz
         
     - name: Check for full moon and send notification
       env:
