@@ -8,10 +8,12 @@ import pytz
 def is_full_moon_today():
     """Check if today is a full moon day (within 12 hours)"""
     now = datetime.utcnow()
-    next_full = ephem.next_full_moon(now)
     current_date = ephem.Date(now)
-    days_diff = abs(float(next_full) - float(current_date))
-    return days_diff <= 0.5
+    next_full = ephem.next_full_moon(now)
+    prev_full = ephem.previous_full_moon(now)
+    days_to_next = abs(float(next_full) - float(current_date))
+    days_from_prev = abs(float(current_date) - float(prev_full))
+    return min(days_to_next, days_from_prev) <= 0.5
 
 def send_slack_message(webhook_url):
     """Send full moon message to Slack"""
