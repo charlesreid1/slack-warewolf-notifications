@@ -1,39 +1,37 @@
-# Full Moon Slack Notifier 🌕
+# Astronomy Slack Notifier
 
-Automatically sends a Slack message at 9 AM Pacific Time on full moon days using GitHub Actions.
+Daily Slack notifications for notable astronomical events, powered by GitHub Actions and [PyEphem](https://rhodesmill.org/pyephem/).
+
+## What It Tracks
+
+- **Full Moon** -- werewolf warning included
+- **New Moon** -- heads-up for prime stargazing conditions
+- **Greatest Elongation** -- Mercury and Venus at peak visibility (morning or evening)
+- **Opposition** -- Mars, Jupiter, and Saturn at their brightest (visible all night)
+- **Planetary Conjunctions** -- any two planets within 2 degrees of each other
+
+All calculations use [ephem](https://rhodesmill.org/pyephem/) (PyEphem), a Python library that computes positions of the Sun, Moon, and planets with high precision. Observer location is set to Los Angeles. The workflow runs daily at 9 AM Pacific and only sends a Slack message when there's something worth looking at.
 
 ## Setup
 
-### 1. Create Slack Webhook
+### 1. Create a Slack Webhook
 
-1. Go to [api.slack.com/apps](https://api.slack.com/apps) → **Create New App** (select "From scratch").
-2. Name your app (e.g., "Full Moon Notifier") and select your workspace.
-3. In the sidebar, click **Incoming Webhooks**.
-4. Toggle **Activate Incoming Webhooks** to "On".
-5. Click **Add New Webhook to Workspace** at the bottom and select a channel.
-6. Copy the **Webhook URL** (it looks like `https://hooks.slack.com/services/T.../B.../...`). This is the secret URL you need.
+1. Go to [api.slack.com/apps](https://api.slack.com/apps) and create a new app from scratch.
+2. Enable **Incoming Webhooks** and add one to your desired channel.
+3. Copy the webhook URL.
 
-### 2. Add GitHub Secret
+### 2. Add the GitHub Secret
 
-1. Repository **Settings** → **Secrets and variables** → **Actions**
-2. **New repository secret**: `SLACK_WEBHOOK_URL`
-3. Paste your webhook URL
+1. Repository **Settings** > **Secrets and variables** > **Actions**
+2. Create a new secret named `SLACK_WEBHOOK_URL` with your webhook URL.
 
-### 3. Done!
+### 3. Done
 
-The workflow runs daily at 9 AM Pacific Time and only sends notifications on full moon days.
+The workflow handles the rest. You can also trigger it manually from the **Actions** tab.
 
-## Files Structure
+## Files
 
 ```
-your-repo/
-├── .github/
-│   └── workflows/
-│       └── lunar-phases.yml
-├── full_moon_notifier.py
-└── README.md
+.github/workflows/lunar-phases.yml   # Daily cron workflow
+full_moon_notifier.py                 # Event detection + Slack messaging
 ```
-
-## Manual Test
-
-**Actions** tab → **Full Moon Notifications** → **Run workflow**
