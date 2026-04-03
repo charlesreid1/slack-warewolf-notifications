@@ -1,15 +1,14 @@
-slack-warewolf-notifications
 # .github/workflows/lunar-phases.yml
-name: Full Moon Notifications
+name: Astronomy Notifications
 
 on:
   schedule:
-    # Run daily at 9:00 AM Pacific (17:00 UTC) to check for full moon
+    # Run daily at 9:00 AM Pacific (17:00 UTC)
     - cron: '0 17 * * *'
   workflow_dispatch: # Allow manual triggering
 
 jobs:
-  check-full-moon:
+  check-events:
     runs-on: ubuntu-latest
     
     steps:
@@ -26,7 +25,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests ephem pytz
         
-    - name: Check for full moon and send notification
+    - name: Check for astronomical events and send notifications
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       run: python full_moon_notifier.py
