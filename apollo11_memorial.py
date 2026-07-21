@@ -19,8 +19,8 @@ APOLLO11_EVENTS = [
         7, 20, 'landing',
         '\U0001f315 Apollo 11 Landed on the Moon!',
         '{years} years ago at 1:17 PM PT, the Eagle touched down in the Sea of Tranquility. '
-        '"The Eagle has landed." Armstrong will take his first step onto the lunar surface '
-        'at 7:56 PM PT tonight. One small step.',
+        '"The Eagle has landed." Armstrong took his first step onto the lunar surface '
+        'at 7:56 PM PT that night. "One small step for a man, one giant leap for mankind."',
     ),
     (
         7, 21, 'lunar_liftoff',
