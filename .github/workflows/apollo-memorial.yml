@@ -1,0 +1,32 @@
+# .github/workflows/apollo-memorial.yml
+name: Apollo 11 Memorial
+
+on:
+  schedule:
+    # Run daily at 8:00 PM Pacific (03:00 UTC next day, during PDT).
+    # Temporary — will move to 9:00 AM Pacific (16:00 UTC PDT / 17:00 UTC PST) after tonight's run.
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  check-events:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pytz
+
+    - name: Check for Apollo 11 anniversaries and send notifications
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: python apollo_memorial.py
