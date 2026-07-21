@@ -1,4 +1,4 @@
-# apollo_memorial.py
+# apollo11_memorial.py
 import os
 import requests
 from datetime import datetime
@@ -12,26 +12,26 @@ APOLLO11_EVENTS = [
     (
         7, 16, 'launch',
         '\U0001f680 Apollo 11 Launched!',
-        '{years} years ago today, Apollo 11 lifted off from Kennedy Space Center '
-        'atop a Saturn V — Armstrong, Aldrin, and Collins on their way to the Moon.',
+        '{years} years ago at 6:32 AM PT, Apollo 11 lifted off from Kennedy Space Center '
+        'atop a Saturn V. Armstrong, Aldrin, and Collins on their way to the Moon.',
     ),
     (
         7, 20, 'landing',
         '\U0001f315 Apollo 11 Landed on the Moon!',
-        '{years} years ago today, the Eagle touched down in the Sea of Tranquility at '
-        '1:17 PM PT — "The Eagle has landed." Armstrong took his first step onto the '
-        'lunar surface at 7:56 PM PT tonight. One small step.',
+        '{years} years ago at 1:17 PM PT, the Eagle touched down in the Sea of Tranquility. '
+        '"The Eagle has landed." Armstrong will take his first step onto the lunar surface '
+        'at 7:56 PM PT tonight. One small step.',
     ),
     (
         7, 21, 'lunar_liftoff',
         '\U0001f315 Apollo 11 Departed the Moon!',
-        '{years} years ago today, the Eagle’s ascent stage lifted off from the lunar surface '
-        'to rendezvous with Columbia in orbit.',
+        '{years} years ago at 10:54 AM PT, the Eagle’s ascent stage lifted off from the '
+        'lunar surface to rendezvous with Columbia in orbit.',
     ),
     (
         7, 24, 'splashdown',
         '\U0001f30a Apollo 11 Returned to Earth!',
-        '{years} years ago today, Apollo 11 splashed down in the Pacific Ocean, '
+        '{years} years ago at 9:50 AM PT, Apollo 11 splashed down in the Pacific Ocean, '
         'safely returning the crew home after their journey to the Moon.',
     ),
 ]

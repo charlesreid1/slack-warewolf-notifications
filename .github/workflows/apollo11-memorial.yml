@@ -1,11 +1,14 @@
-# .github/workflows/apollo-memorial.yml
+# .github/workflows/apollo11-memorial.yml
 name: Apollo 11 Memorial
 
 on:
   schedule:
-    # Run daily at 8:00 PM Pacific (03:00 UTC next day, during PDT).
-    # Temporary — will move to 9:00 AM Pacific (16:00 UTC PDT / 17:00 UTC PST) after tonight's run.
-    - cron: '0 3 * * *'
+    # Each event fires at its historically accurate real-time moment (PDT → UTC).
+    # GitHub Actions cron may run several minutes late; message text carries the exact time.
+    - cron: '32 13 16 7 *'  # Launch:        Jul 16, 6:32 AM PDT (13:32 UTC)
+    - cron: '17 20 20 7 *'  # Landing:       Jul 20, 1:17 PM PDT (20:17 UTC)
+    - cron: '54 17 21 7 *'  # Lunar liftoff: Jul 21, 10:54 AM PDT (17:54 UTC)
+    - cron: '50 16 24 7 *'  # Splashdown:    Jul 24, 9:50 AM PDT (16:50 UTC)
   workflow_dispatch: # Allow manual triggering
 
 jobs:
@@ -29,4 +32,4 @@ jobs:
     - name: Check for Apollo 11 anniversaries and send notifications
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      run: python apollo_memorial.py
+      run: python apollo11_memorial.py
